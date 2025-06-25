@@ -8,7 +8,7 @@ Basic C# console application that performs **one-way folder synchronization** be
 
 Clone the repository
 ```bash
-git clone[https://github.com/yildirimuyanik/Folder-Synchronizer.git]
+git clone https://github.com/yildirimuyanik/Folder-Synchronizer.git
 ```
 
 Go to the project's root folder 
