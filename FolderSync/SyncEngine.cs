@@ -29,11 +29,16 @@ public class SyncEngine
                 Directory.CreateDirectory(Path.GetDirectoryName(replicaFile));
 
 
-                if (!File.Exists(replicaFile) || GetMD5(sourceFile) != GetMD5(replicaFile))
+                if (!File.Exists(replicaFile))
                 {
                     logger.Log($"Preparing to copy: {sourceFile} -> {replicaFile}");
                     File.Copy(sourceFile, replicaFile, true);
-                    logger.Log($"Copied file: {relativePath}");
+                    logger.Log($"Copied file: {relativePath}"); 
+                }
+                else if (GetMD5(sourceFile) != GetMD5(replicaFile))
+                {
+                    File.Copy(sourceFile, replicaFile, true);
+                    logger.Log($"Updated file: {relativePath}");
                 }
             }
         }
@@ -53,9 +58,7 @@ public class SyncEngine
             throw;
         }
 
-
-
-        // Delte files that are in the replica but not in the source
+        // Delte files those are in the replica directory but not in the source directory
         try
         {
             foreach (var replicaFile in replicaFiles)
@@ -71,6 +74,7 @@ public class SyncEngine
                 }
             }
         }
+
         catch (UnauthorizedAccessException ex)
         {
             logger.Log($"Access denied while deleting files: {ex.Message}\nStack trace: {ex.StackTrace}");
