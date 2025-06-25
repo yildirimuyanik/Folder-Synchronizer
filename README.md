@@ -8,14 +8,14 @@ Basic C# console application that performs **one-way folder synchronization** be
 
 Clone the repository
 ```bash
-git clone[https://github.com/yildirimuyanik/Folder-Synchronizer.git](https://github.com/yildirimuyanik/Folder-Synchronizer.git)
+git clone[https://github.com/yildirimuyanik/Folder-Synchronizer.git]
 ```
 
-Go to the project's root folder
+Go to the project's root folder 
 ```bash
 dotnet run 
-  --source C:\\MySourceFolder
-  --replica D:\\MyReplicaFolder
+  --source C:\\MySourceFolder 
+  --replica C:\\MyReplicaFolder
   --interval 60 
-  --log D:\\sync-log.txt
+  --log C:\\MysyncLog.txt
 ```
