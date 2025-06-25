@@ -13,6 +13,10 @@ git clone https://github.com/yildirimuyanik/Folder-Synchronizer.git
 
 Go to the project's root folder 
 ```bash
+cd Folder-Synchronizer
+```
+Run the app
+```bash
 dotnet run 
   --source C:\\MySourceFolder 
   --replica C:\\MyReplicaFolder
