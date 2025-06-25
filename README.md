@@ -7,8 +7,8 @@ Basic C# console application that performs **one-way folder synchronization** be
 ### CLI Usage
 
 ```bash
-dotnet run --project FolderSync.csproj -- \
-  --source "C:\\MySourceFolder" \
-  --replica "D:\\MyReplicaFolder" \
-  --interval 60 \
+dotnet run --project FolderSync.csproj 
+  --source "C:\\MySourceFolder"
+  --replica "D:\\MyReplicaFolder" 
+  --interval 60 
   --log "D:\\sync-log.txt"
