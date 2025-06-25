@@ -10,7 +10,7 @@ public class SyncEngine
     }
 
 
-    // Synchronizes the source directory with the replica directory
+  
     public void Synchronize(string sourceDir, string replicaDir)
     {
         if (!Directory.Exists(sourceDir)) throw new DirectoryNotFoundException("Source not found.");
