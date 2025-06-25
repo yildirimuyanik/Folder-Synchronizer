@@ -19,7 +19,7 @@ public class SyncEngine
         var sourceFiles = Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories);
         var replicaFiles = Directory.GetFiles(replicaDir, "*", SearchOption.AllDirectories);
 
-        // Copy files from source to replica
+     
         try
         {
             foreach (var sourceFile in sourceFiles)
@@ -28,13 +28,14 @@ public class SyncEngine
                 string replicaFile = Path.Combine(replicaDir, relativePath);
                 Directory.CreateDirectory(Path.GetDirectoryName(replicaFile));
 
-
+                // Copy files from source to replica if they don't exist
                 if (!File.Exists(replicaFile))
                 {
                     logger.Log($"Preparing to copy: {sourceFile} -> {replicaFile}");
                     File.Copy(sourceFile, replicaFile, true);
                     logger.Log($"Copied file: {relativePath}");
                 }
+                // If the file exists,check if they differ if so then update the replica
                 else if (GetMD5(sourceFile) != GetMD5(replicaFile))
                 {
                     logger.Log($"Preparing to update: {sourceFile} -> {replicaFile}");
