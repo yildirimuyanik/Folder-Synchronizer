@@ -29,11 +29,17 @@ public class SyncEngine
                 Directory.CreateDirectory(Path.GetDirectoryName(replicaFile));
 
 
-                if (!File.Exists(replicaFile) || GetMD5(sourceFile) != GetMD5(replicaFile))
+                if (!File.Exists(replicaFile))
                 {
                     logger.Log($"Preparing to copy: {sourceFile} -> {replicaFile}");
                     File.Copy(sourceFile, replicaFile, true);
                     logger.Log($"Copied file: {relativePath}");
+                }
+                else if (GetMD5(sourceFile) != GetMD5(replicaFile))
+                {
+                    logger.Log($"Preparing to update: {sourceFile} -> {replicaFile}");
+                    File.Copy(sourceFile, replicaFile, true);
+                    logger.Log($"Updated file: {relativePath}");
                 }
             }
         }
