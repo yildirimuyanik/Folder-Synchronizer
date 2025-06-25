@@ -4,11 +4,18 @@ Basic C# console application that performs **one-way folder synchronization** be
 ### Requirements
 - [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 
-### CLI Usage
+### How to run the application
 
+Clone the repository
 ```bash
-dotnet run --project FolderSync.csproj 
-  --source "C:\\MySourceFolder"
-  --replica "D:\\MyReplicaFolder" 
+git clone[https://github.com/yildirimuyanik/Folder-Synchronizer.git](https://github.com/yildirimuyanik/Folder-Synchronizer.git)
+```
+
+Go to the project's root folder
+```bash
+dotnet run 
+  --source C:\\MySourceFolder
+  --replica D:\\MyReplicaFolder
   --interval 60 
-  --log "D:\\sync-log.txt"
+  --log D:\\sync-log.txt
+```
